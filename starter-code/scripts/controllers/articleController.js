@@ -43,6 +43,16 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*
+    
+    handleFilters function is assigned to the articleView object.
+    This listens to changes made in select boxes and executes a
+    callback function that changes the field in the select box
+    with whatever is selected. Whichever select box was changed,
+    the other is reset. A page() call records our selection in URL
+    to preserve application state change. The function is called
+    at the end of articleView.js.
+  */
   articleController.loadAll = function(ctx, next) {
     var articleData = function(allArticles) {
       ctx.articles = Article.allArticles;
