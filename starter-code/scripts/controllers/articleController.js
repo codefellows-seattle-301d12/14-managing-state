@@ -16,7 +16,7 @@
   Called by page when we look for an article by id.  Create a function and store
   it in articleData and makes that our context article.  Then calls articleData
   and passes in id and parameters and sets ctx articles the parameters we
-  passed in.  findWhere performs an SQL that finds an artical corresponding 
+  passed in.  findWhere performs an SQL that finds an artical corresponding
   to context id.
   */
   articleController.loadById = function(ctx, next) {
@@ -29,7 +29,9 @@
 
   // COMMENT: What does this method do?  What is it's execution path?
   /*
-
+  This function is called by page when we look for an authorname. We define a function, and invoke
+  it within findWhere. FindWhere passes in the author we perform a SQL call to to retrieve articles
+  with the author context we passed in.
   */
   articleController.loadByAuthor = function(ctx, next) {
     var authorData = function(articlesByAuthor) {
@@ -44,7 +46,9 @@
 
   // COMMENT: What does this method do?  What is it's execution path?
   /*
-
+  This function is called by page when we look for a category. We define a function and invoke it
+  within findWhere. FindWhere passes in the author we perform a SQL call to retrieve articles with
+  the author category context we passed in.
   */
   articleController.loadByCategory = function(ctx, next) {
     var categoryData = function(articlesInCategory) {
