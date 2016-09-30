@@ -16,6 +16,12 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*
+    Via Handlebars this function returns a templated version
+    of a list of authors and categories to be appended to select boxes.
+    The data for articles and categories comes from models/article.js.
+    This function is called at the end of articleView.js.
+  */
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -35,6 +41,15 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*
+    handleFilters function is assigned to the articleView object.
+    This listens to changes made in select boxes and executes a
+    callback function that changes the field in the select box
+    with whatever is selected. Whichever select box was changed,
+    the other is reset. A page() call records our selection in URL
+    to preserve application state change. The function is called
+    at the end of articleView.index.
+  */
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -84,6 +99,16 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*
+    .index function is assigned to the articleView object and is called
+    in articleController.js articleController.index function.
+    Context is passed into articleView.index. Shows the articles, hides
+    the others sections of the page and clears all articles currently with the
+    id of article.  Then loop through articles and append the created in
+    the render function.  Call populateFilters and handleFilters then hide
+    everything that is beyond the second dom element of the article body.
+
+  */
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
