@@ -16,6 +16,19 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+
+  /*
+    1. When this function is called we will define a variable 'options'
+    2. Grab Handlebar template text by ID of #option-template and compile it
+    and assign to variable template.
+    3. The variable options is given a value of the function Article.allAuthors
+    which takes all the author names and returns an array. Every index is being
+    mapped by the .map method and coverted into an array of objects which
+    object has the value of name = authorName.
+    4. We are appending the options variable to the section with the ID of
+    #author-filter.
+  */
+
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
