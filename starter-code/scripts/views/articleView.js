@@ -103,15 +103,11 @@
     .index function is assigned to the articleView object and is called
     in articleController.js articleController.index function.
     Context is passed into articleView.index. Shows the articles, hides
-    the others sections of the page
+    the others sections of the page and clears all articles currently with the
+    id of article.  Then loop through articles and append the created in
+    the render function.  Call populateFilters and handleFilters then hide
+    everything that is beyond the second dom element of the article body.
 
-    handleFilters function is assigned to the articleView object.
-    This listens to changes made in select boxes and executes a
-    callback function that changes the field in the select box
-    with whatever is selected. Whichever select box was changed,
-    the other is reset. A page() call records our selection in URL
-    to preserve application state change. The function is called
-    at the end of articleView.index.
   */
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
