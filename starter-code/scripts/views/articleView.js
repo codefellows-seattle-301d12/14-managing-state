@@ -48,6 +48,16 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+
+  /*
+    1. When this function has been called it change the filter value when an
+    author-filter has been changed by the value of author.
+    2. The children of siblings is being change to an empty string ie
+    category filter is set to an empty string.
+    3. Then it calls the page function to change the url by what author was
+    selected from the dropdown.
+    4. Author name seperated by space is being replaced with the + sign.
+  */
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
