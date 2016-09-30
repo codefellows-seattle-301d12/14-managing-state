@@ -12,6 +12,14 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*
+    1. ctx = url /articles/id
+    2. We will then call Article.findWhere and returns the value of the article
+    sorted by ID and it will call a callback function articleData.
+    3. articleData will assign ctx.articles the sorted article and then it will
+    call the next function.
+
+  */
   articleController.loadById = function(ctx, next) {
     var articleData = function(article) {
       ctx.articles = article;
