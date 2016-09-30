@@ -115,6 +115,17 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*
+    1. Show the element with an ID of articles, then hide the siblings of that element.
+    2. Remove all article elements that are children of ID articles from the DOM.
+    3. For each article in the articles that were passed in when articleView.index was called,
+    4. Append the result of calling render, which runs each article's properties through our
+      Handlebars template function on that article to ID articles.
+    5. Then articleView.populateFilters and articleView.handleFilters are called, previously commented.
+    6. If the length of the array of the article elements which are children of ID articles is greater than 1,
+      e.g., if there is more than one article being displayed, then select all elements that are nth-of-type(n+2)
+      that are children of elements with a class of article-body and hide them.
+  */
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
