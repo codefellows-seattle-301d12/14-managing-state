@@ -16,6 +16,19 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+
+  /*
+    1. When this function is called we will define a variable 'options'
+    2. Grab Handlebar template text by ID of #option-template and compile it
+    and assign to variable template.
+    3. The variable options is given a value of the function Article.allAuthors
+    which takes all the author names and returns an array. Every index is being
+    mapped by the .map method and coverted into an array of objects which
+    object has the value of name = authorName.
+    4. We are appending the options variable to the section with the ID of
+    #author-filter.
+  */
+
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -35,6 +48,16 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+
+  /*
+    1. When this function has been called it change the filter value when an
+    author-filter has been changed by the value of author.
+    2. The children of siblings is being change to an empty string ie
+    category filter is set to an empty string.
+    3. Then it calls the page function to change the url by what author was
+    selected from the dropdown.
+    4. Author name seperated by space is being replaced with the + sign.
+  */
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -84,6 +107,17 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+
+  /*
+    1. articleView.index function is grabbing all articles by ID of #articles
+    hiding siblings for example the about content.
+    2. Grabbing the article from the #articles ID and remove the content.
+    3. From the articles array article objects and appending the article
+    objects to the DOM 1 by 1.
+    4. We are invoking the populateFilters and handleFilters functions.
+    5. the if statement below is if we have more than one article showing
+    then only show 2 paragraph per article.
+  */
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
