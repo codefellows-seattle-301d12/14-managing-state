@@ -107,6 +107,17 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+
+  /*
+    1. articleView.index function is grabbing all articles by ID of #articles
+    hiding siblings for example the about content.
+    2. Grabbing the article from the #articles ID and remove the content.
+    3. From the articles array article objects and appending the article
+    objects to the DOM 1 by 1.
+    4. We are invoking the populateFilters and handleFilters functions.
+    5. the if statement below is if we have more than one article showing
+    then only show 2 paragraph per article.
+  */
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
