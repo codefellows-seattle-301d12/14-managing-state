@@ -21,7 +21,7 @@
   3.. Then it sets the articles property on the ctx object equal to the article that gets passed into it
   4. Then it calls the next function, which is articleController.index, and that one checks if the articles
   property on the ctx object has a length, if so, it calls articleView.index, IF NOT, it makes a page call
-  where the url is the root. 
+  where the url is the root.
   */
   articleController.loadById = function(ctx, next) {
     var articleData = function(article) {
@@ -32,6 +32,10 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /* 1. findWhere is a SQL call that will select all authors from the authors table with the field 'author'
+  and the value of the author name property of the params property of the ctx object (with all + replaced with a ' '), which it gets from the URL placeholder, and then calls the function authorData (which functions as above)
+    2. authorData sets ctx.articles equal to the response from our SQL query, then calls (next), which is articleController.index, which is explained above. 
+  */
   articleController.loadByAuthor = function(ctx, next) {
     var authorData = function(articlesByAuthor) {
       ctx.articles = articlesByAuthor;
