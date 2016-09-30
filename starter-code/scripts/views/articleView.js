@@ -51,6 +51,21 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*
+    1. Add a one-time event handler to all select elements that are descendants of elements with an ID of filters.
+    2. When one of those elements changes, run an anonymous function that:
+    3. Set resource equal to either author or category, by getting the element clicked on, its ID, and using
+       .replace to change the string to replace -filter with an empty string.
+       EX: If you clicked on a select element with ID "author-filter", then replace "-filter" with "", leaving
+       you with "author"
+    4. Then, find the select element's parent (which is a li element), its siblings (which are the other li
+      elements), then its children (which are the other select elements), and change their values to an
+      empty string. This will reset the values of all filters other than the one changed.
+    5. Then, a page function will be called, passing in the url /resource/author or category, replacing
+      all whitespace with a + sign.
+      EX: If resource is author, and the value of the author-filter select is 'Virginia Swain', then page will
+      use the URL /author/Virginia+Swain
+  */
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
